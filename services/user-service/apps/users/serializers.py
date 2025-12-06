@@ -24,7 +24,7 @@ class UserWithProfileSerializer(serializers.ModelSerializer):
         
 
 class UserRegistrarionSerializer(serializers.ModelSerializer):
-    password = serializers.CharField(write_only=True
+    password = serializers.CharField(write_only=True,
                                      min_length=8)
     password_confirm = serializers.CharField(write_only=True)
 
