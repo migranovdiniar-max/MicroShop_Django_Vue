@@ -15,6 +15,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # Third-party
+    'rest_framework',
+    'corsheaders',
+    'django_celery_beat',
+    'django_filters',
+
+    # Local apps
+    'apps.users',  # ? обязательно!
 ]
 
 MIDDLEWARE = [
@@ -30,13 +39,10 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'config.urls'
 
 
-# LOCAL_APPS = [
-#     'apps.accounts',
-#     'apps.main',
-#     'apps.comments',
-#     'apps.subscribe',
-#     'apps.payment',
-# ]
+LOCAL_APPS = [
+    "app.users",
+    "app.authentication",
+]
 
 
 TEMPLATES = [
@@ -121,6 +127,9 @@ SIMPLE_JWT = {
     'USER_ID_FIELD': 'id',
     'USER_ID_CLAIM': 'user_id',
 }
+
+
+AUTH_USER_MODEL = 'users.User'
 
 
 CORS_ALLOWED_ORIGINS = [
