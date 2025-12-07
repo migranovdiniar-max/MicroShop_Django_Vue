@@ -1,7 +1,3 @@
-"""
-Django settings for cart-service.
-"""
-
 from pathlib import Path
 from datetime import timedelta
 import os
@@ -33,7 +29,7 @@ INSTALLED_APPS = [
     'django_filters',
 
     # Local apps
-    'apps.cart',  # Предполагаем структуру: apps/cart/models.py
+    'apps.orders', 
 ]
 
 MIDDLEWARE = [
@@ -45,7 +41,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    "apps.products.middleware.JWTAuthenticationMiddleware"
+    # "apps.products.middleware.JWTAuthenticationMiddleware"
 ]
 
 ROOT_URLCONF = 'config.urls'
@@ -73,7 +69,7 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR.parent.parent / 'databases' / 'cart.db',
+        'NAME': BASE_DIR.parent.parent / 'databases' / 'order.db',
     }
 }
 
@@ -173,6 +169,7 @@ LOGGING = {
 
 # Service URLs
 PRODUCT_SERVICE_URL = "http://localhost:8001"
+CART_SERVICE_URL = "http://localhost:8002"
 USER_SERVICE_URL = "http://localhost:8004"
 
 
